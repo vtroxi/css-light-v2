@@ -1,0 +1,21 @@
+:root {
+    --background-default-c: var(--gray-1);
+    --container-primary-c: white;
+    --container-secondary-c: var(--gray-0);
+
+    --border-primary-c: var(--gray-2);
+
+    --header-c: var(--gray-4);
+    --header-text-c: white;
+
+    --sidebar-c: var(--gray-0);
+    --sidebar-text-c: var(--text-primary);
+
+    --text-primary: var(--gray-2);
+    --text-secondary: var(--gray-3);
+
+    --tooltip-c: rgba(20, 20, 20, 0.9);
+    --tooltip-text-c: white;
+
+    --h-default: white;
+}
