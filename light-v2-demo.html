@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>CSS Light V2 Demo</title>
+    <link rel="icon"
+          href="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Fcss31600.png&f=1">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="prefixfree.js"></script>
@@ -15,10 +17,16 @@
 
     <link href="light-v2.css" rel="stylesheet">
 
+    <!-- Not needed for layout - just some utils -->
+    <script>
+        // closable alerts
+        window.onclick = e => {if(e.target.parentElement.getAttribute("class").includes("alert") && e.target.tagName === "I") {e.target.parentElement.remove();}}
+    </script>
+
     <script>
         let theme = getQueryParam("theme");
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             switch (theme) {
                 case "dark":
                     document.getElementById("light_theme").remove();
@@ -67,7 +75,8 @@
         </div>
         <div class="uniform-container"></div>
         <div class="uniform-container w20">
-            <button onclick="changeTheme()" class="field button purple ml2 mr2 hide-4">Theme <i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+            <button onclick="changeTheme()" class="field button purple ml2 mr2 hide-4">Theme <i
+                    class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
             <p>
                 <span class="mr1">Breakpoint:</span>
                 <span class="badge red rd25">
@@ -166,7 +175,7 @@
                     <div class="data-box">
                         <p class="mb0">Tooltips:</p>
                         <div class="tooltip"><span class="rd25">This is a tooltip!</span>
-                            <button class="field button blue rd25">Hover over me!</button>
+                            <button class="field button blue rd25">Hover Over Me</button>
                         </div>
                         <p class="ilb">Tooltips are centered:</p>
                         <div class="tooltip"><span class="rd25">+</span>
@@ -175,14 +184,16 @@
                     </div>
 
                     <div class="data-box">
-                        <p class="mb0">Alerts:</p>
-                        <button class="field button blue rd25 alert">Click on me!</button>
-                        <div tabindex="0" class="alert-content mw6">
+                        <p class="mb0">Modals example:</p>
+                        <button class="field button blue rd25 modal">Login</button>
+                        <div tabindex="0" class="modal-content mw6">
                             <div class="card-box shadow rd25 fit">
                                 <div class="head top-line blue">
                                     <h3 class="t15">USER LOGIN</h3>
                                 </div>
                                 <div class="content">
+                                    <div class="alert red rd25"><p>Your account could not be found!</p> <i class="fa fa-times close" aria-hidden="true"></i>
+                                    </div>
                                     <div class="mr1 ml1 mt1">Enter your account data below:</div>
                                     <div class="m2">
                                         <label for="field11">Username</label>
@@ -202,18 +213,53 @@
                                         <br>
                                         <p>
 
-                                        Check our <a href="#">AGBs</a>, <a href="#">Imprint</a>, <a
-                                            href="#">Licenses</a>, <a href="#">Lolfaces</a> and other things
-                                        no one
-                                        will ever read...
+                                            Check our <a href="#">AGBs</a>, <a href="#">Imprint</a>, <a
+                                                href="#">Licenses</a>, <a href="#">Lolfaces</a> and other things
+                                            no one
+                                            will ever read...
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="alert-bg"></div>
+                        <div class="modal-bg"></div>
                     </div>
+
+                    <div class="data-box">
+                        <p>Modals to display images:</p>
+                        <button class="field button blue rd25 modal">Show Image</button>
+                        <div tabindex="0" class="modal-content mw2">
+                            <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F11%2FHD-Canyon-Wallpaper.jpg&f=1"
+                                 alt="...">
+                        </div>
+                        <div class="modal-bg"></div>
+                    </div>
+
+
+                    <div class="data-box">
+                        <p class="mb0">Alerts example:</p>
+                        <button class="field button blue rd25 modal">Alerts</button>
+                        <div tabindex="0" class="modal-content mw6">
+                            <div class="card-box shadow rd25 fit">
+                                <div class="head top-line blue">
+                                    <h3 class="t15">All Alerts</h3>
+                                </div>
+                                <div class="content">
+                                    <div class="m1">Alerts come in all standard colors:</div>
+                                    <div class="alert blue rd25"><p>This is a blue alert!</p> <i class="fa fa-times close" aria-hidden="true"></i></div>
+                                    <div class="alert red rd25"><p>This is a red alert!</p> <i class="fa fa-times close" aria-hidden="true"></i></div>
+                                    <div class="alert green rd25"><p>This is a green alert!</p> <i class="fa fa-times close" aria-hidden="true"></i></div>
+                                    <div class="alert yellow rd25"><p>This is a yellow alert!</p> <i class="fa fa-times close" aria-hidden="true"></i></div>
+                                    <div class="alert purple rd25"><p>This is a purple alert!</p> <i class="fa fa-times close" aria-hidden="true"></i></div>
+
+                                    <div class="m1">Without the one line of JS they are not closable:</div>
+                                    <div class="alert blue rd25"><p>This is a blue alert!</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-bg"></div>
+                    </div>
+
 
                     <div class="data-box">
                         <p class="mb0">An input field w100:</p>
@@ -237,7 +283,7 @@
 
                     <div class="data-box">
                         <p class="mb0">An inline input field w100 with a submit button:</p>
-                        <div class="line-column">
+                        <div class="line-row">
                             <div class="line-container w100">
                                 <input class="field" placeholder="Your value here">
                             </div>
@@ -246,23 +292,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="data-box">
-                        No "p" as a text
-                        <div class="line-column">
-                            <div class="line-container w100">
-                                <input class="field" placeholder="Your value here">
-                            </div>
-                            <div class="line-container">
-                                <button onclick="" class="field button blue">Set</button>
-                            </div>
-                        </div>
-                    </div>
-
 
                     <div class="data-box">
                         <p class="mb0">An inline select dropdown w100 with a prefix field:</p>
-                        <div class="line-column">
+                        <div class="line-row">
                             <div class="line-container">
                                 <div class="field light">Select Value:</div>
                             </div>
@@ -273,6 +306,18 @@
                                     <option>Design 2</option>
                                     <option>Design 3</option>
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-box">
+                        <p class="mb0">An inline button w100 with a prefix field:</p>
+                        <div class="line-row">
+                            <div class="line-container">
+                                <div class="field light">Select Value:</div>
+                            </div>
+
+                            <div class="line-container w100">
+                                <button class="field button green">Click meeee</button>
                             </div>
                         </div>
                     </div>
@@ -296,7 +341,22 @@
                     <button class="field button blue w100">Test2</button>
                     <button class="field button blue w100">Test3</button>
                     <button class="field button blue w100">Test4</button>
+                    <p>Text inside p</p>
                     <button class="field button blue w100">Test5</button>
+                    No text not inside p
+                    <div class="line-row">
+                        <div class="line-container w100">
+                            <input class="field" placeholder="Your value here">
+                        </div>
+                        <div class="line-container">
+                            <button onclick="" class="field button blue">Set</button>
+                        </div>
+                    </div>
+                    <p>
+                        Text and button inside p:
+                        <br>
+                        <button class="field button blue">Test Button</button>
+                    </p>
                 </div>
             </div>
         </div>
@@ -533,11 +593,12 @@
                     <h3>ROW-GRID DESIGN</h3>
                 </div>
                 <div class="content">
-                    <p>Flat button style</p>
-                    <button class="field button blue w100 flat">Flat Blue</button>
-                    <button class="field button red w100 flat">Flat Red</button>
-                    <button class="field button green w100 flat">Flat Green</button>
-                    <button class="field button yellow w100 flat">Flat Yellow</button>
+                    <p>Gradient button style</p>
+                    <button class="field button blue w100 gradient">Gradient Blue</button>
+                    <button class="field button red w100 gradient">Gradient Red</button>
+                    <button class="field button green w100 gradient">Gradient Green</button>
+                    <button class="field button yellow w100 gradient">Gradient Yellow</button>
+                    <button class="field button purple w100 gradient">Gradient Purple</button>
                 </div>
             </div>
         </div>
