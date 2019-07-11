@@ -56,6 +56,8 @@
 
     --font-primary: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 
+    --gradient-colors: #EE7752, #E73C7E, #23A6D5, #23D5AB;
+
     --text--3: 10px;
     --text--2: 12px;
     --text--1: 14px;
@@ -92,6 +94,31 @@ body {
     outline: none;
 }
 
+body.gradient {
+    background-size: 400vw 400vh;
+    animation: gradient-bg 15s ease infinite;
+    background-image: linear-gradient(-45deg, var(--gradient-colors));
+    background-repeat: no-repeat;
+}
+
+.img-fix {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@keyframes gradient-bg {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
 a {
     display: inline-block;
     color: inherit;
@@ -120,7 +147,6 @@ h1 {
     font-weight: 400;
     color: var(--h-default);
     font-family: 'Oleo Script', cursive;
-    white-space: nowrap;
 }
 
 h1.b {
@@ -133,6 +159,11 @@ h1.db {
 
 h1.s {
     font-size: var(--text-1);
+}
+
+h1.l {
+    font-weight: 300;
+    font-family: "Roboto";
 }
 
 h1.n {
@@ -341,6 +372,10 @@ span.b {
 
 .tw {
     color: white !important;
+}
+
+.tb {
+    color: black !important;
 }
 
 .rd0 {
@@ -664,6 +699,20 @@ div.black-transparent {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+}
+
+.glass {
+    box-shadow: inset 0 0 50px 20px rgba(255,255,255,0.1);
+    background: linear-gradient(rgba(255, 255 ,255 , 0.2), rgba(255, 255 ,255 , 0.075))!important;
+}
+
+.glass > h3 {
+    box-shadow: inset 0 0 50px 20px rgba(255,255,255,0.1);
+    background: linear-gradient(rgba(255, 255 ,255 , 0.2), rgba(255, 255 ,255 , 0.075))!important;
+}
+
+.glass.dark {
+    background-color: rgba(0, 0, 0, 0.2) !important
 }
 
 .card-box.shadow {

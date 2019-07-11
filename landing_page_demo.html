@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Landing Page Demo</title>
+    <link rel="icon"
+          href="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Fcss31600.png&f=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="prefixfree.js"></script>
+
+    <link id="light_theme" href="theme_light.css" rel="stylesheet">
+    <link id="dark_theme" href="theme_dark.css" rel="stylesheet">
+
+    <link href="light-v2.css" rel="stylesheet">
+
+    <!-- Not needed for layout - just some utils -->
+    <script>
+        // closable alerts
+        window.onclick = e => {
+            if (e.target.parentElement.getAttribute("class").includes("alert") && e.target.tagName === "I") {
+                e.target.parentElement.remove();
+            }
+        }
+    </script>
+
+    <script>
+        let theme = getQueryParam("theme");
+
+        document.addEventListener("DOMContentLoaded", function () {
+            switch (theme) {
+                case "dark":
+                    document.getElementById("light_theme").remove();
+                    break;
+                default:
+                    document.getElementById("dark_theme").remove();
+                    break;
+            }
+        });
+
+        function changeTheme() {
+            let queryValue = "dark";
+            switch (theme) {
+                case "dark":
+                    queryValue = "light";
+                    break;
+                default:
+                    break;
+            }
+            document.location.href = setQueryParam(document.location.href, "theme", queryValue);
+        }
+
+        function getQueryParam(key) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(key);
+        }
+
+        function setQueryParam(uri, key, value) {
+            let re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+            let separator = uri.indexOf('?') !== -1 ? "&" : "?";
+            if (uri.match(re)) {
+                return uri.replace(re, '$1' + key + "=" + value + '$2');
+            } else {
+                return uri + separator + key + "=" + value;
+            }
+        }
+    </script>
+</head>
+
+<body class="img-fix"
+      style="background-image: url('https://images.pexels.com/photos/122427/roll-the-dice-craps-board-game-points-122427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+<div class="header fixed shadow">
+    <div class="uniform-row glass dark">
+        <div class="uniform-container sidebar-top-logo">
+            <h1 class="s n mr1"><i class="fa fa-css3" aria-hidden="true"></i> LIGHT V2</h1>
+        </div>
+        <div class="uniform-container"></div>
+        <div class="uniform-container w20">
+            <button onclick="changeTheme()" class="field button purple ml2 mr2 hide-4">Theme <i
+                    class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+            <p>
+                <span class="mr1">Breakpoint:</span>
+                <span class="badge red rd25">
+                    <span class="hide-1">X</span>
+                    <span class="show-1 hide-2">1</span>
+                    <span class="show-2 hide-3">2</span>
+                    <span class="show-3 hide-4">3</span>
+                    <span class="show-4 hide-5">4</span>
+                    <span class="show-5 hide-6">5</span>
+                    <span class="show-6">6</span>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div tabindex="0" class="sidebar-holder break3 t0 click click-bg"><i class="fa fa-bars" aria-hidden="true"></i>
+    <div class="sidebar">
+        <div class="content">
+            <h3><i class="fa fa-bars" aria-hidden="true"></i><span class="hide-3 ml1">Navigation</span>
+            </h3>
+
+            <a href="general_css_demo.html"><i class="fa fa-chrome" aria-hidden="true"></i><span class="hide-3"> General CSS</span></a>
+            <a href="landing_page_demo.html"><i class="fa fa-file-o" aria-hidden="true"></i><span class="hide-3"> Landing Page</span></a>
+            <a href="#">#<span class="hide-3"> Click me</span></a>
+            <a href="#">#<span class="hide-3"> Click me</span></a>
+            <a href="#">#<span class="hide-3"> Click me</span></a>
+            <h3><i class="fa fa-archive" aria-hidden="true"></i><span class="hide-3 ml1">Stuff</span>
+            </h3>
+            <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i><span
+                    class="hide-3"> Click-link</span></a>
+            <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i><span class="hide-3"> Click me</span></a>
+            <a href="#">#<span class="hide-3"> Click me</span></a>
+            <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i><span class="hide-3"> Click me</span></a>
+            <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i><span class="hide-3"> Click me</span></a>
+            <button class="field button yellow"><span class="show-3">C</span><span
+                    class="hide-3">Click</span></button>
+            <p class="hide-3">Even some text can fit inside here!</p>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper w2">
+
+    <h1 class="mb0 p2">Welcome to Light CSS</h1>
+    <h2 style="font-family: 'Century Schoolbook L'" class="tw ml2 mt0 p2">stay here because it's a cool thing</h2>
+
+    <div class="uniform-row break2" style="margin-top: 500px; margin-bottom: 100px;">
+        <div class="uniform-container space2">
+            <div class="card-box glass rd">
+                <div class="head border">
+                    <h2 class="tw"><i class="fa fa-chrome" aria-hidden="true"></i>ur Solutions</h2>
+                </div>
+                <div class="content tw">
+                    <p class="mt1">fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec
+                        sagittis
+                        aliquam
+                        malesuada bibendum arcu vitae elementum.</p>
+                    <p class="ilb mr0">Use this cool design:</p>
+                    <button class="m1 field button green rd25 large">Register</button>
+                </div>
+            </div>
+        </div>
+        <div class="uniform-container space2">
+            <h1 style="font-family: 'fantasy'"><i class="fa fa-firefox" aria-hidden="true"></i> Compatible</h1>
+            <h2 style="color: rgba(255, 255, 255, 0.5);">Lightweight and fast</h2>
+        </div>
+    </div>
+
+    <div class="uniform-row">
+        <div class="uniform-container w50">
+            <div class="card-box img-fix p2" style="height: 512px; background-color: transparent; background-repeat: no-repeat; background-size: cover; background-image: url('https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.stickpng.com%2Fassets%2Fimages%2F5887c26cbc2fc2ef3a186046.png&f=1')">
+                <h1 class="tb p2">Get in Contact!</h1>
+                <h1 class="tb m0" style="font-size: 100px"><i class="fa fa-handshake-o" aria-hidden="true"></i></h1>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 500px;"></div>
+</div>
+
+</body>
+</html>
